@@ -4,7 +4,7 @@ import cv2
 def main():
     # Load the images
     #image = cv2.imread(r'C:\Users\Rafa\PycharmProjects\VC\deti.bmp',  cv2.IMREAD_UNCHANGED)
-    image = cv2.imread(r'C:\Users\Rafa\PycharmProjects\VC\input.png',  cv2.IMREAD_UNCHANGED)
+    image = cv2.imread(r'/home/rafa/Desktop/VC/Images/input.png',  cv2.IMREAD_UNCHANGED)
 
     # Check if images were loaded correctly
     if image is None:

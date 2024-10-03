@@ -8,9 +8,16 @@
 import numpy as np
 import cv2
 import sys
+import os
+
+image_directory = '/home/rafa/Desktop/VC/Images/'
 
 # Lê o nome do arquivo da imagem da linha de comando
-image_file = sys.argv[1]
+image_file_name = sys.argv[1]
+
+# Cria o caminho completo para a imagem
+image_file = os.path.join(image_directory, image_file_name)
+
 
 # Read the image
 image = cv2.imread(image_file, cv2.IMREAD_COLOR)

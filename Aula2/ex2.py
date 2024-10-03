@@ -11,8 +11,8 @@ import sys
 image_file = sys.argv[0]
 
 # Read the image
-image1 = cv2.imread( r'C:\Users\Rafa\PycharmProjects\VC\deti.bmp', cv2.IMREAD_COLOR )
-image2 = cv2.imread( r'C:\Users\Rafa\PycharmProjects\VC\deti.jpg', cv2.IMREAD_COLOR )
+image1 = cv2.imread( r'/home/rafa/Desktop/VC/Images/deti.bmp', cv2.IMREAD_COLOR )
+image2 = cv2.imread( r'/home/rafa/Desktop/VC/Images/deti.jpg', cv2.IMREAD_COLOR )
 
 
 if image1 is None or image2 is None:

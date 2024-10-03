@@ -11,11 +11,11 @@ import sys
 image_file = sys.argv[0]
 
 # Read the image
-image1 = cv2.imread( r'C:\Users\Rafa\PycharmProjects\VC\Orchid.bmp', cv2.IMREAD_COLOR )
+image1 = cv2.imread( r'/home/rafa/Desktop/VC/Images/Orchid.bmp', cv2.IMREAD_COLOR )
 
-image_90 = cv2.imread(r'C:\Users\Rafa\PycharmProjects\VC\Orchid_90.jpeg')
-image_50 = cv2.imread(r'C:\Users\Rafa\PycharmProjects\VC\Orchid_50.jpeg')
-image_20 = cv2.imread(r'C:\Users\Rafa\PycharmProjects\VC\Orchid_20.jpeg')
+image_90 = cv2.imread(r'/home/rafa/Desktop/VC/Images/Orchid_90.jpeg')
+image_50 = cv2.imread(r'/home/rafa/Desktop/VC/Images/Orchid_50.jpeg')
+image_20 = cv2.imread(r'/home/rafa/Desktop/VC/Images/Orchid_20.jpeg')
 
 if image1 is None or image_90 is None or image_50 is None or image_20 is None:
     print("Uma ou mais imagens não puderam ser abertas.")

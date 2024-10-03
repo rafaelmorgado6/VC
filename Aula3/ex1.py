@@ -7,8 +7,11 @@
 import cv2
 import numpy as np
 import sys
+import os
 
-image_file = sys.argv[1]
+image_directory = '/home/rafa/Desktop/VC/Images/'
+image_file_name = sys.argv[1]
+image_file = os.path.join(image_directory, image_file_name)
 
 # Função para desenhar a grade
 def draw_grid(image, spacing=20):

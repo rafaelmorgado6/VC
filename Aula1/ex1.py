@@ -5,12 +5,12 @@
  # Paulo Dias
 
 import numpy as np 	# fornece suporte para arrays multidimensionais (matrizes) e uma coleção de funções matemáticas e lógicas para operar com esses arrays
-import cv2			# módulo principal da biblioteca OpenCV
+import cv2		# módulo principal da biblioteca OpenCV
 import sys			#  módulo principal da biblioteca OpenCV
 
 # Read the image  r'' serve para nao causar problemas com "/"
 # cv2.IMREAD_UNCHANGED -> carrega a imagem exatamente como ela é, sem modificar suas propriedades
-image = cv2.imread(r'C:\Users\Rafa\PycharmProjects\VC\lena.jpg', cv2.IMREAD_UNCHANGED)
+image = cv2.imread(r'/home/rafa/Desktop/VC/Images/lena.jpg', cv2.IMREAD_UNCHANGED)
 
 
 if  np.shape(image) == ():	# função da biblioteca np(numpy)
@@ -43,3 +43,4 @@ cv2.waitKey( 0 )
 
 # Destroy the window -- might be omitted
 cv2.destroyWindow( "Display window" )
+

@@ -12,7 +12,7 @@ import cv2
 
 # Read the image from argv
 # image = cv2.imread( sys.argv[1] , cv2.IMREAD_UNCHANGED );
-image = cv2.imread( r'C:\Users\Rafa\PycharmProjects\VC\lena.jpg', cv2.IMREAD_UNCHANGED )
+image = cv2.imread( r'/home/rafa/Desktop/VC/Images/lena.jpg', cv2.IMREAD_UNCHANGED )
 
 if  np.shape(image) == ():
 	# Failed Reading
