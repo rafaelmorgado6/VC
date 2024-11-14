@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 # Carregar as imagens (src e dst) em grayscale
-src = cv2.imread('/home/rafa/Desktop/ua_computerVision/images/deti.bmp', cv2.IMREAD_GRAYSCALE)
-dst = cv2.imread('/home/rafa/Desktop/ua_computerVision/images/deti_tf.bmp', cv2.IMREAD_GRAYSCALE)
+src = cv2.imread('/home/rafa/Desktop/VC/images/deti.bmp', cv2.IMREAD_GRAYSCALE)
+dst = cv2.imread('/home/rafa/Desktop/VC/images/deti_tf.bmp', cv2.IMREAD_GRAYSCALE)
 
 # Inicializar o detector ORB para extrair keypoints e descritores
 orb = cv2.ORB_create()

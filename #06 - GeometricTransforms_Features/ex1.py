@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
     
-image = cv2.imread(r'/home/rafa/Desktop/ua_computerVision/images/deti.bmp',  cv2.IMREAD_UNCHANGED)
+image = cv2.imread(r'/home/rafa/Desktop/VC/images/deti.bmp',  cv2.IMREAD_UNCHANGED)
 
 # Check if images were loaded correctly
 if image is None:

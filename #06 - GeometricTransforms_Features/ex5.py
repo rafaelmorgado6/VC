@@ -3,8 +3,8 @@ import numpy as np
 import math
 
 # Carregar as imagens (src e dst) em grayscale
-src = cv2.imread('/home/rafa/Desktop/ua_computerVision/images/deti.bmp', cv2.IMREAD_GRAYSCALE)
-dst = cv2.imread('/home/rafa/Desktop/ua_computerVision/images/deti_tf.bmp', cv2.IMREAD_GRAYSCALE)
+src = cv2.imread('/home/rafa/Desktop/VC/images/deti.bmp', cv2.IMREAD_GRAYSCALE)
+dst = cv2.imread('/home/rafa/Desktop/VC/images/deti_tf.bmp', cv2.IMREAD_GRAYSCALE)
 
 # Inicializar o detector ORB para extrair keypoints e descritores
 orb = cv2.ORB_create()
@@ -21,7 +21,7 @@ matches = bf.match(des1, des2)
 matches = sorted(matches, key=lambda x: x.distance)
 
 # Selecionar as melhores correspondências (aqui usando 10%)
-numGoodMatches = int(len(matches) * 0.1)
+numGoodMatches = int(len(matches) * 0.5)
 numGoodMatches = max(3, numGoodMatches)  # Garantir que tenhamos pelo menos 3 correspondências
 matches = matches[:numGoodMatches]
 
@@ -85,7 +85,7 @@ difference = cv2.absdiff(warp_dst, dst)
 # Display the difference
 cv2.imshow("Difference between Warped and Transformed", difference)
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.destroyAllWindows();
   
 
 

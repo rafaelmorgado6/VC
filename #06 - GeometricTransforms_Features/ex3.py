@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 # Load the original and transformed images
-src = cv2.imread('/home/rafa/Desktop/ua_computerVision/images/deti.bmp')  # Load the original image
-dst = cv2.imread('/home/rafa/Desktop/ua_computerVision/images/deti_tf.bmp')  # Load the transformed image
+src = cv2.imread('/home/rafa/Desktop/VC/images/deti.bmp')  # Load the original image
+dst = cv2.imread('/home/rafa/Desktop/VC/images/deti_tf.bmp')  # Load the transformed image
 
 # Check if images are loaded
 if src is None or dst is None:

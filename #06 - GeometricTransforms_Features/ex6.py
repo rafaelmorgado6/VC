@@ -1,52 +1,53 @@
 import cv2
 import numpy as np
 
-# Carregar a imagem
-img = cv2.imread('/home/rafa/Desktop/ua_computerVision/images/homography_4.jpg')
+# Dimensões do livro
+book_width_cm = 17.5
+book_height_cm = 23.5
 
-# Inicializar lista para armazenar os pontos selecionados pelo usuário
-points = []
 
-# Função de callback do mouse para capturar os pontos de canto
-def select_point(event, x, y, flags, param):
+def select_points(event, x, y, flags, param):
     global points
     if event == cv2.EVENT_LBUTTONDOWN:
         points.append((x, y))
-        cv2.circle(img, (x, y), 5, (0, 255, 0), -1)
-        cv2.imshow("Select Corners", img)
+        cv2.circle(image, (x, y), 5, (255, 0, 255), -1)
+        cv2.imshow("Select Corners", image)
 
-# Exibir a imagem e definir o callback para capturar os pontos
-cv2.imshow("Select Corners", img)
-cv2.setMouseCallback("Select Corners", select_point)
 
-# Aguardar até que 4 pontos sejam selecionados
-while len(points) < 4:
-    cv2.waitKey(1)
+image = cv2.imread('/home/rafa/Desktop/VC/images/homography_4.jpg')
+width, height, _ = image.shape
+cv2.imshow("Select Corners", image)
 
-cv2.destroyAllWindows()
+# Lista de pontos selecionados
+points = []
+cv2.setMouseCallback("Select Corners", select_points)
 
-# Converter a lista de pontos selecionados para um array numpy
-src_points = np.float32(points)
-
-# Definir os pontos de destino para a transformação de perspectiva (o tamanho do livro)
-book_width = 235  # largura em pixels
-book_height = 175  # altura em pixels
-
-# Os pontos de destino correspondem ao tamanho do livro
-dst_points = np.float32([
-    [0, 0],
-    [book_width, 0],
-    [book_width, book_height],
-    [0, book_height]])
-
-# Calcular a matriz de homografia
-M, mask = cv2.findHomography(src_points, dst_points)
-
-# Aplicar a transformação de perspectiva com o tamanho da imagem original
-warped_img = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]))
-
-# Exibir a imagem corrigida
-cv2.imshow("Corrected Perspective", warped_img)
+# Aguarda a seleção de quatro pontos
+print("Selecione os quatro cantos do livro na imagem.")
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
+# Verifica se quatro pontos foram selecionados
+if len(points) != 4:
+    print("Erro: Selecione exatamente quatro pontos.")
+else:
+    # Define os pontos de destino com base no tamanho do livro
+    destination_points = np.array([
+        [0, 0],
+        [book_width_cm * 10, 0],
+        [book_width_cm * 10, book_height_cm * 10],
+        [0, book_height_cm * 10]
+    ], dtype="float32")
+
+    # Converte os pontos selecionados em uma matriz numpy
+    src_points = np.array(points, dtype="float32")
+
+    # Calcula a homografia
+    h_matrix, _ = cv2.findHomography(src_points, destination_points)
+
+    warped_image = cv2.warpPerspective(image, h_matrix, (width, height))
+
+    # Exibe a imagem corrigida
+    cv2.imshow("Corrected Homography", warped_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
